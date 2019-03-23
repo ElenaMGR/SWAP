@@ -1,9 +1,9 @@
 # Práctica 1. Preparación de las herramientas
-Realizada por Elena María Gómez Ríos y Guillermo Sandoval Schmidt
+Realizada por Elena María Gómez Ríos y Guillermo Sandoval Schmidt.
 
 ## Objetivos
 - Acceder por ssh de una máquina a otra.
-- Acceder mediante la herramienta curl desde una máquina a la otra
+- Acceder mediante la herramienta curl desde una máquina a la otra.
 
 ## Instalación
 Para las prácticas hemos utilizado el software de virtualización VirtualBox.
