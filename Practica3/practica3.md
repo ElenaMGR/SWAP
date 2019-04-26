@@ -57,7 +57,7 @@ Ahora probamos que el balanceador funciona correctamente con curl, a igual que h
 ## Someter a una alta carga el servidor balanceado con ab
 
 ### Nginx como servidor balanceado con round-robin
-Ejecutamos `ab -n 1000 -c 10 http://192.168.2.121/hola.html` en nuestra máquina anfitriona y comprobamos como afecta el nivel de peticiones a cada elemento de la granja web con el comando `htop`.
+Ejecutamos `ab -n 100000 -c 10 http://192.168.2.121/hola.html` en nuestra máquina anfitriona y comprobamos como afecta el nivel de peticiones a cada elemento de la granja web con el comando `htop`.
 
 <img src="img/10.png" width="430"/> <img src="img/11.png" width="430"/>
 
@@ -79,3 +79,23 @@ En este caso supondremos que la máquina 1 tiene el doble de capacidad que la m�
 En este caso se puede observar como el uso de la CPU de la máquina M1 es mayor que el de la máquina M2.
 
 ### Haproxy como servidor balanceado con round-robin
+De igual forma que hicimos con el balancedor `nginx` ejecutamos `ab -n 100000 -c 10 http://192.168.2.121/hola.html` en nuestra máquina anfitriona y comprobamos como afecta el nivel de peticiones a cada elemento de la granja web con el comando `htop`.
+
+<img src="img/23.png" width="430"/> <img src="img/24.png" width="430"/>
+
+<img src="img/21.png" width="430"/> <img src="img/22.png" width="430"/>
+<img src="img/20.png" width="430"/>
+
+Se puede observar que la CPU del balanceador está prácticamente al 100% mientras que en las máquinas M1 y M2 está al 50% ya que la carga está repartida entre ambas máquinas.
+
+### Haproxy como servidor balanceado con ponderación
+Para que el balanceador haga la ponderación dando mas peso a la máquina M1 tenemos que cambiar el archivo de configuración `/etc/haproxy/haproxy.cfg` con el siguiente contenido:
+
+![](img/25.png)
+
+<img src="img/29.png" width="430"/> <img src="img/30.png" width="430"/>
+
+<img src="img/27.png" width="430"/> <img src="img/28.png" width="430"/>
+<img src="img/26.png" width="430"/>
+
+En este caso se puede observar como el uso de la CPU de la máquina M1 es mayor que el de la máquina M2.
