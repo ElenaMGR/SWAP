@@ -59,10 +59,10 @@ Ahora probamos que el balanceador funciona correctamente con curl, a igual que h
 ### Nginx como servidor balanceado con round-robin
 Ejecutamos `ab -n 1000 -c 10 http://192.168.2.121/hola.html` en nuestra máquina anfitriona y comprobamos como afecta el nivel de peticiones a cada elemento de la granja web con el comando `htop`.
 
-<img src="img/10.png" width="440"/> <img src="img/11.png" width="440"/>
+<img src="img/10.png" width="430"/> <img src="img/11.png" width="430"/>
 
-<img src="img/12.png" width="440"/> <img src="img/13.png" width="440"/>
-<img src="img/9.png" width="440"/>
+<img src="img/12.png" width="430"/> <img src="img/13.png" width="430"/>
+<img src="img/9.png" width="430"/>
 
 Se puede observar que la CPU del balanceador está prácticamente al 100% mientras que en las máquinas M1 y M2 está al 50% ya que la carga está repartida entre ambas máquinas.
 
@@ -71,10 +71,10 @@ En este caso supondremos que la máquina 1 tiene el doble de capacidad que la m�
 
 ![](img/14.png)
 
-<img src="img/18.png" width="440"/> <img src="img/19.png" width="440"/>
+<img src="img/18.png" width="430"/> <img src="img/19.png" width="430"/>
 
-<img src="img/16.png" width="440"/> <img src="img/17.png" width="440"/>
-<img src="img/15.png" width="440"/>
+<img src="img/16.png" width="430"/> <img src="img/17.png" width="430"/>
+<img src="img/15.png" width="430"/>
 
 En este caso se puede observar como el uso de la CPU de la máquina M1 es mayor que el de la máquina M2.
 
