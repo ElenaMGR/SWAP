@@ -99,3 +99,15 @@ Para que el balanceador haga la ponderación dando mas peso a la máquina M1 ten
 <img src="img/26.png" width="430"/>
 
 En este caso se puede observar como el uso de la CPU de la máquina M1 es mayor que el de la máquina M2.
+
+### Comparación de tiempos
+Hemos lanzado 100000 peticiones para comprobar un alto volumen. Consideraremos el tiempo total del test para nuestro análisis. Los resultados obtenidos han sido los siguientes:
+
+| Balanceador          | Algoritmo Balanceo  | Tiempo(s)| Media de tiempo por petición(ms) |
+| -------------------- | ------------------- | -------- | -------------------------------  |
+| Nginx                | round-robin         | 70.888   | 7.089                            |
+| Nginx                | ponderación         | 68.457   | 6.846                            |
+| HAProxy              | round-robin         | 54.509   | 5.451                            |
+| HAProxy              | ponderación         | 57.025   | 5.703                            |
+
+Como se puede observar el balanceador HaProxy es más rápido que Nginx.
